@@ -13,7 +13,7 @@ $ npm install --save guardian-js
 
 The documentation for the Guardian API can be found [here](http://open-platform.theguardian.com/documentation/)
 
-In order to connect you'll need an api key, which you can easily generate (here)[http://open-platform.theguardian.com/access/]
+In order to connect you'll need an api key, which you can easily generate [here](http://open-platform.theguardian.com/access/)
 
 The developer api key gives you limited access to all portions of the api, and nearly all portions of the news (well over 1.7m articles)
 
