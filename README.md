@@ -51,6 +51,20 @@ api.content.search('basketball', {
 });
 ```
 
+### Note
+
+All calls are bluebird promises, so you can extend like so:
+
+```js
+api.editions.search('us') //make the call
+  .then(function(response){
+    console.log(response.body); //do something with the response
+  })
+  .catch(function(err){
+    console.log(err);
+  });
+```
+
 ### Contributing
 
 Feel free to contribute, just submit a PR if you have anyhting to add.
