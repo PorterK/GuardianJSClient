@@ -20,7 +20,7 @@ The developer api key gives you limited access to all portions of the api, and n
 To start using the API, you should first instantiate the guardian prototype
 
 ```js
-const guardian = require('guardian-js');
+const guardian = require('guardian-js').connect;
 
 let api = new guardian(apiKey, false);
 ```
