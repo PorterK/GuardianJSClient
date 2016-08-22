@@ -1,4 +1,4 @@
-[![NPM](https://nodei.co/npm/guardian-js.png)](https://nodei.co/npm/guardian-js/)
+[![NPM](https://nodei.co/npm/guardian-js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/guardian-js/)
 
 # GuardianJSClient
 A JavaScript client library for the Guardian API
