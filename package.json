@@ -1,10 +1,10 @@
 {
   "name": "guardian-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A JavaScript lib for the Guardian's api",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,10 @@
   "homepage": "https://github.com/PorterK/GuardianJSClient#readme",
   "dependencies": {
     "bluebird": "^3.4.1",
+    "expect": "^1.20.2",
     "lodash": "^4.15.0",
+    "mocha": "^3.0.2",
     "request": "^2.74.0"
-  }
+  },
+  "devDependencies": {}
 }
