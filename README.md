@@ -65,6 +65,20 @@ api.editions.search('us') //make the call
   });
 ```
 
+### Tests
+
+All tests are ran using [mocha](https://mochajs.org/), instal using
+
+```sh
+$ npm install -g mocha
+```
+
+Then run
+
+```sh
+$ npm test
+```
+
 ### Contributing
 
 Feel free to contribute, just submit a PR if you have anyhting to add.
