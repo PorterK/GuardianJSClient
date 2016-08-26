@@ -1,0 +1,5 @@
+language: node_js
+node_js:
+  - "5.3"
+before_install: npm install -g mocha
+script: mocha test
