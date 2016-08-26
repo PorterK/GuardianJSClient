@@ -67,7 +67,7 @@ api.editions.search('us') //make the call
 
 ### Tests
 
-All tests are ran using [mocha](https://mochajs.org/), instal using
+All tests are ran using [mocha](https://mochajs.org/), install using
 
 ```sh
 $ npm install -g mocha
