@@ -34,7 +34,7 @@ api.content.search('football', {
   tag: 'sports'
 });
 ```
-The api object has 5 methods that all ship with a `search` function. The objects are all follows
+The api object has 5 methods that all ship with a `search` function. The methods are as follows:
 
 ```sh
   content, tags, sections, editions, item
