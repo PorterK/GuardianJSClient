@@ -81,7 +81,7 @@ $ npm test
 
 ### Contributing
 
-Feel free to contribute, just submit a PR if you have anyhting to add.
+Feel free to contribute, just submit a PR if you have anything to add.
 
 ### License
 
