@@ -23,7 +23,7 @@ Item.prototype.search = function(id, filters){
     filterString = filterString + `&${_.kebabCase(key)}=${value}`;
   });
 
-  return get(`${this.base}/?api-key=${this.key}&q=${id}${filterString}`);
+  return get(`${this.base}/${id}?api-key=${this.key}${filterString}`);
 }
 
 exports.item = Item;
