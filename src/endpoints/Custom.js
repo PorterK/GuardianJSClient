@@ -6,7 +6,7 @@ const _ = require('lodash');
 
 let get = Promise.promisify(request.get);
 
-function Item(key, secure){
+function Custom(key, secure){
   this.key = key;
   this.secure = secure;
   this.http = secure ? 'https://' : 'http://';
@@ -14,7 +14,7 @@ function Item(key, secure){
 
 }
 
-Item.prototype.search = function(id, filters){
+Custom.prototype.search = function(filters){
   let params = filters ? filters : {};
 
   let filterString = '';
@@ -23,7 +23,7 @@ Item.prototype.search = function(id, filters){
     filterString = filterString + `&${_.kebabCase(key)}=${value}`;
   });
 
-  return get(`${this.base}/${id}?api-key=${this.key}${filterString}`);
+  return get(`${this.base}/search?api-key=${this.key}${filterString}`);
 }
 
-exports.item = Item;
+exports.custom = Custom;
