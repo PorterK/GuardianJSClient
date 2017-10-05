@@ -1,0 +1,65 @@
+Arguments: 
+  /usr/local/Cellar/node/8.4.0/bin/node /usr/local/bin/yarn publish
+
+PATH: 
+  /Users/kalobporter/Library/Python/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  8.4.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "guardian-js",
+    "version": "1.0.10",
+    "description": "A JavaScript lib for the Guardian's api",
+    "main": "src/index.js",
+    "scripts": {
+      "test": "mocha test"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/PorterK/GuardianJSClient.git"
+    },
+    "keywords": [
+      "Guardian",
+      "News"
+    ],
+    "author": "Kalob Porter <kalob@kalob.net> (http://kalob.net)",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/PorterK/GuardianJSClient/issues"
+    },
+    "homepage": "https://github.com/PorterK/GuardianJSClient#readme",
+    "dependencies": {
+      "bluebird": "^3.5.1",
+      "expect": "^1.20.2",
+      "lodash": "^4.17.4",
+      "mocha": "^3.5.3",
+      "request": "^2.83.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://registry.yarnpkg.com/guardian-js: You must be logged in to publish packages.
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/util/request-manager.js:326:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/node_modules/request/request.js:188:22)
+      at emitTwo (events.js:125:13)
+      at Request.emit (events.js:213:7)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/node_modules/request/request.js:1171:10)
+      at emitOne (events.js:115:13)
+      at Request.emit (events.js:210:7)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/node_modules/request/request.js:1091:12)
+      at Object.onceWrapper (events.js:314:30)
+      at emitNone (events.js:110:20)
