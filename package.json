@@ -1,6 +1,6 @@
 {
   "name": "guardian-js",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A JavaScript lib for the Guardian's api",
   "main": "src/index.js",
   "scripts": {
@@ -22,9 +22,9 @@
   "homepage": "https://github.com/PorterK/GuardianJSClient#readme",
   "dependencies": {
     "bluebird": "^3.5.1",
-    "expect": "^1.20.2",
+    "expect": "^21.2.1",
     "lodash": "^4.17.4",
-    "mocha": "^3.5.3",
+    "mocha": "^4.0.0",
     "request": "^2.83.0"
   }
 }

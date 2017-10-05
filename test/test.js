@@ -33,7 +33,7 @@ describe('Content', function(){
 
   it('actually returns content', function(){
     api.content.search('football')
-      .then(function(){
+      .then(function(r){
         expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
       })
   });
@@ -59,7 +59,7 @@ describe('Tags', function(){
 
   it('actually returns content', function(){
     api.tags.search('sport')
-      .then(function(){
+      .then(function(r){
         expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
       })
   });
@@ -75,7 +75,7 @@ describe('Sections', function(){
 
   it('actually returns content', function(){
     api.tags.search('world')
-      .then(function(){
+      .then(function(r){
         expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
       })
   });
@@ -91,7 +91,7 @@ describe('Editions', function(){
 
   it('actually returns content', function(){
     api.editions.search('u')
-      .then(function(){
+      .then(function(r){
         expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
       })
   });
@@ -99,7 +99,7 @@ describe('Editions', function(){
 
 describe('Item', function(){
   it('has a search function that returns OK', function(){
-    api.item.search()
+    api.item.search('football')
       .then(function(response){
         expect(response.statusCode).toBe(200);
       });
@@ -116,7 +116,7 @@ describe('Item', function(){
 
   it('actually returns content', function(){
     api.item.search('world')
-      .then(function(){
+      .then(function(r){
         expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
       })
   });
