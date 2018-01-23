@@ -37,10 +37,10 @@ api.content.search('football', {
   tag: 'sports'
 });
 ```
-The api object has 5 methods that all ship with a `search` function. The methods are as follows:
+The api object has 6 methods that all ship with a `search` function. The methods are as follows:
 
 ```sh
-  content, tags, sections, editions, item
+  content, tags, sections, editions, item, custom
 ```
 The first parameter of the `search` function is the query term, the 2nd parameter can be any other valid parameter (see the [documentation](http://open-platform.theguardian.com/documentation/) to see which parameters to use)
 
