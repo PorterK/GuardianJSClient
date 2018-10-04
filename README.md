@@ -56,7 +56,7 @@ api.content.search('basketball', {
 
 ### Note
 
-All calls are bluebird promises, so you can extend like so:
+All calls are promises, so you can extend like so:
 
 ```js
 api.editions.search('us') //make the call
@@ -66,6 +66,18 @@ api.editions.search('us') //make the call
   .catch(function(err){
     console.log(err);
   });
+```
+
+or using async/await
+
+```js
+try {
+  const resp = await api.editions.search('us');
+
+  console.log(resp.body);
+} catch (err) {
+  throw err;
+}
 ```
 
 ### Tests

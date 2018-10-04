@@ -1,10 +1,7 @@
 'use strict';
 
-const request = require('request');
-const Promise = require('bluebird');
+const get = require('../helpers/get');
 const _ = require('lodash');
-
-let get = Promise.promisify(request.get);
 
 function Sections(key, secure){
   this.key = key;
