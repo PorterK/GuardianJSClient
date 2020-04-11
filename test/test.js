@@ -1,7 +1,6 @@
 'use strict';
 const expect = require('expect');
 const guardian = require('../src');
-const _ = require('lodash');
 let api = new guardian('2a896a41-f4fb-4dcd-829d-2034c043bb0d', false);
 
 
@@ -25,7 +24,7 @@ describe('Content', async () => {
       starRating: 3
     });
     
-    expect(_.includes(response.req._header, 'star-rating'));
+    expect(response.req._header.includes('star-rating'));
   });
 
   it('actually returns content', async () => {
@@ -48,7 +47,7 @@ describe('Tags', () => {
       pageSize: 3
     });
     
-    expect(_.includes(response.req._header, 'page-size'));
+    expect(response.req._header.includes('page-size'));
   });
 
   it('actually returns content', async () => {
