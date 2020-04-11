@@ -27,7 +27,4 @@
     "expect": "^25.3.0",
     "mocha": "^7.1.1"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  }
 }
