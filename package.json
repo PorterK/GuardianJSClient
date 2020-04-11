@@ -26,5 +26,5 @@
   "devDependencies": {
     "expect": "^25.3.0",
     "mocha": "^7.1.1"
-  },
+  }
 }
