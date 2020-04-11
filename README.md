@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/PorterK/GuardianJSClient.svg?branch=master)](https://travis-ci.org/PorterK/GuardianJSClient)
-[![Dependency Status](https://gemnasium.com/badges/github.com/PorterK/GuardianJSClient.svg)](https://gemnasium.com/github.com/PorterK/GuardianJSClient)
 
 [![NPM](https://nodei.co/npm/guardian-js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/guardian-js/)
 
