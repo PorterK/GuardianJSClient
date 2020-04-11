@@ -1,6 +1,6 @@
 'use strict';
 
-const get = require('./helpers/get');
+const request = require('request');
 
 function GuardianJSInvalidMethodException(message) {
   this.message = message;
@@ -13,6 +13,15 @@ function Endpoint(endpoint, key, useSSL, availableFunctions = ['search']) {
   this.http = useSSL ? 'https://' : 'http://';
   this.base = `${this.http}content.guardianapis.com`;
   this.availableFunctions = availableFunctions;
+  this.request = function (params) {
+    return new Promise((resolve, reject) => {
+      request.get(params, (err, res, body) => {
+        if (err) reject(err);
+
+        resolve({ response: res, body });
+      });
+    });
+  }
 }
 
 Endpoint.prototype.search = function (query = null, filters = {}) {
@@ -27,7 +36,7 @@ Endpoint.prototype.search = function (query = null, filters = {}) {
     filter = `${filter}&${key}=${entry[1]}`;
   });
 
-  return get(`${this.base}/${this.endpoint}?api-key=${this.key}&q=${query}${filter}`);
+  return this.request(`${this.base}/${this.endpoint}?api-key=${this.key}&q=${query}${filter}`);
 }
 
 Endpoint.prototype.getById = function (id) {
@@ -35,7 +44,7 @@ Endpoint.prototype.getById = function (id) {
    throw new GuardianJSInvalidMethodException('getById is an invalid method'); 
   }
 
-  return get(`${this.base}/${id}?api-key=${this.key}`);
+  return this.request(`${this.base}/${id}?api-key=${this.key}`);
 }
 
 exports.endpoint = Endpoint; 
