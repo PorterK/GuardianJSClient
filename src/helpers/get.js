@@ -5,7 +5,7 @@ module.exports = (params) => {
       request.get(params, (err, res, body) => {
         if (err) reject(err);
 
-        return ({ res, body });
+        resolve({ response: res, body });
       });
     });
   }

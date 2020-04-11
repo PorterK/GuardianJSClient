@@ -23,9 +23,9 @@ The developer api key gives you limited access to all portions of the api, and n
 To start using the API, you should first instantiate the guardian prototype
 
 ```js
-const Guardian = require('guardian-js');
+import Guardian from 'guardian-js';
 
-const api = new Guardian(apiKey, false);
+const guardian = new Guardian(apiKey, false);
 ```
 
 The 2nd argument in the guardian constructor is a boolean indicating whether you'd like to use https or not.
@@ -52,6 +52,14 @@ For example, to search for a `basketball` article with a `star-rating` of 3, the
 api.content.search('basketball', {
   starRating: 3
 });
+```
+
+To get a single item you have to use `getById`
+
+Ex:
+
+```js
+api.item.getById('business/2014/feb/18/uk-inflation-falls-below-bank-england-target');
 ```
 
 ### Note

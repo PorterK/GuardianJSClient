@@ -2,122 +2,100 @@
 const expect = require('expect');
 const guardian = require('../src');
 const _ = require('lodash');
-let api = new guardian('test', false);
+let api = new guardian('2a896a41-f4fb-4dcd-829d-2034c043bb0d', false);
 
 
-describe('Connection', function(){
-  it('should return OK', function(){
-    api.content.search()
-      .then(function(response){
-        expect(response.statusCode).toBe(200);
-      })
+describe('Connection', () => {
+  it('should return OK', async () => {
+    const { response } = await api.content.search();
+
+    expect(response.statusCode).toBe(200);
   })
 });
 
-describe('Content', function(){
-  it('has a search function that returns OK', function(){
-    api.content.search()
-      .then(function(response){
-        expect(response.statusCode).toBe(200);
-      });
+describe('Content', async () => {
+  it('has a search function that returns OK', async () => {
+    const { response } = await api.content.search();
+    
+    expect(response.statusCode).toBe(200);
   });
 
-  it('properly parses filters', function(){
-    api.content.search('football', {
+  it('properly parses filters', async () => {
+    const { response } = await api.content.search('football', {
       starRating: 3
-    })
-      .then(function(response){
-        expect(_.includes(response.req._header, 'star-rating'));
-      })
+    });
+    
+    expect(_.includes(response.req._header, 'star-rating'));
   });
 
-  it('actually returns content', function(){
-    api.content.search('football')
-      .then(function(r){
-        expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
-      })
+  it('actually returns content', async () => {
+    const response = await api.content.search('football');
+    
+    expect(JSON.parse(response.body).response.results.length).toBeGreaterThan(0);
   });
 
 });
 
-describe('Tags', function(){
-  it('has a search function that returns OK', function(){
-    api.tags.search()
-      .then(function(response){
-        expect(response.statusCode).toBe(200);
-      });
+describe('Tags', () => {
+  it('has a search function that returns OK', async () => {
+   const { response } =  await api.tags.search();
+    
+   expect(response.statusCode).toBe(200);
   });
 
-  it('properly parses filters', function(){
-    api.tags.search('football', {
+  it('properly parses filters', async () => {
+    const { response } = await api.tags.search('football', {
       pageSize: 3
-    })
-      .then(function(response){
-        expect(_.includes(response.req._header, 'page-size'));
-      })
+    });
+    
+    expect(_.includes(response.req._header, 'page-size'));
   });
 
-  it('actually returns content', function(){
-    api.tags.search('sport')
-      .then(function(r){
-        expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
-      })
+  it('actually returns content', async () => {
+    const response = await api.tags.search('sport');
+    
+    expect(JSON.parse(response.body).response.results.length).toBeGreaterThan(0);
   });
 });
 
-describe('Sections', function(){
-  it('has a search function that returns OK', function(){
-    api.sections.search()
-      .then(function(response){
-        expect(response.statusCode).toBe(200);
-      });
+describe('Sections', () => {
+  it('has a search function that returns OK', async () => {
+    const { response } = await api.sections.search();
+    
+    expect(response.statusCode).toBe(200);
   });
 
-  it('actually returns content', function(){
-    api.tags.search('world')
-      .then(function(r){
-        expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
-      })
+  it('actually returns content', async () => {
+    const { body } = await api.tags.search('world');
+    
+    expect(JSON.parse(body).response.results.length).toBeGreaterThan(0);
   });
 });
 
-describe('Editions', function(){
-  it('has a search function that returns OK', function(){
-    api.editions.search()
-      .then(function(response){
-        expect(response.statusCode).toBe(200);
-      });
+describe('Editions', () => {
+  it('has a search function that returns OK', async () => {
+    const { response } = await api.editions.search();
+    
+    expect(response.statusCode).toBe(200);
   });
 
-  it('actually returns content', function(){
-    api.editions.search('u')
-      .then(function(r){
-        expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
-      })
+  it('actually returns content', async () => {
+    const { body } = await api.editions.search('u');
+    
+    expect(JSON.parse(body).response.results.length).toBeGreaterThan(0);
   });
 });
 
-describe('Item', function(){
-  it('has a search function that returns OK', function(){
-    api.item.search('football')
-      .then(function(response){
-        expect(response.statusCode).toBe(200);
-      });
+describe('Item', () => {
+  it('has a search function that returns OK', async () => {
+    const { response } = await api.item.getById('business/2014/feb/18/uk-inflation-falls-below-bank-england-target');
+    
+    expect(response.statusCode).toBe(200);
   });
 
-  it('properly parses filters', function(){
-    api.item.search('football', {
-      starRating: 3
-    })
-      .then(function(response){
-        expect(_.includes(response.req._header, 'star-rating'));
-      })
-  });
+  it('actually returns content', async () => {
+    const { body } = await api.item.getById('business/2014/feb/18/uk-inflation-falls-below-bank-england-target');
 
-  it('actually returns content', function(){
-    api.item.search('world')
-      .then(function(r){
-        expect(JSON.parse(r.body).response.results.length).toBeGreaterThan(0);
-      })
+    expect(JSON.parse(body).response.total).toBeGreaterThan(0);
   });
 });
