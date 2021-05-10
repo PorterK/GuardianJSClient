@@ -1,6 +1,6 @@
 'use strict';
 const expect = require('expect');
-const guardian = require('../src');
+const guardian = require('../dist').default;
 let api = new guardian('2a896a41-f4fb-4dcd-829d-2034c043bb0d', false);
 
 

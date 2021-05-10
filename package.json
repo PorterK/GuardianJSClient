@@ -1,8 +1,8 @@
 {
   "name": "guardian-js",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "A JavaScript lib for the Guardian's api",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "mocha test"
   },
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "expect": "^25.3.0",
-    "mocha": "^7.1.1"
+    "mocha": "^7.1.1",
+    "typescript": "^4.2.4"
   }
 }
