@@ -1,6 +1,6 @@
 {
   "name": "guardian-js",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A JavaScript lib for the Guardian's api",
   "main": "dist/index.js",
   "scripts": {

@@ -5,7 +5,7 @@ interface IEndpoint {
     base: string;
     availableFunctions: Array<string>;
     request: (params: Object) => Promise<Object>;
-    search: (query: string, filters: object) => Function;
+    search: (query: string, filters: object) => Promise<unknown>;
     getById: (id: string) => Function;
 }
 export declare class Endpoint implements IEndpoint {
@@ -15,7 +15,7 @@ export declare class Endpoint implements IEndpoint {
     base: string;
     availableFunctions: Array<string>;
     request: (params: Object) => Promise<any>;
-    search: (query: string, filters: object) => Function;
+    search: (query: string, filters: object) => Promise<unknown>;
     getById: (id: string) => Function;
     constructor(endpoint: string, key: string, useSSL: boolean, availableFunctions?: Array<string>);
 }
