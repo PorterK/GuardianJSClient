@@ -5,6 +5,9 @@
 # GuardianJSClient
 A JavaScript client library for the Guardian API
 
+> **Warning**
+> As of v5.0.0 the response data has been simplified to include just the body which is a major breaking change
+
 ### Installation
 
 ```sh
@@ -68,7 +71,7 @@ All calls are promises, so you can extend like so:
 ```js
 api.editions.search('us') //make the call
   .then(function(response){
-    console.log(response.body); //do something with the response
+    console.log(response); //do something with the response
   })
   .catch(function(err){
     console.log(err);
@@ -81,7 +84,7 @@ or using async/await
 try {
   const resp = await api.editions.search('us');
 
-  console.log(resp.body);
+  console.log(resp);
 } catch (err) {
   throw err;
 }
@@ -89,10 +92,10 @@ try {
 
 ### Tests
 
-All tests are ran using [mocha](https://mochajs.org/), install using
+All tests are ran using [jest](https://jestjs.io/), install using
 
 ```sh
-$ npm install -g mocha
+$ npm install
 ```
 
 Then run
