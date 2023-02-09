@@ -6,6 +6,7 @@
 A JavaScript client library for the Guardian API
 
 > **Warning**
+>
 > As of v5.0.0 the response data has been simplified to include just the body which is a major breaking change
 
 ### Installation
