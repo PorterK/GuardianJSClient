@@ -1,100 +1,103 @@
 'use strict';
-const expect = require('expect');
 const guardian = require('../dist').default;
-let api = new guardian('2a896a41-f4fb-4dcd-829d-2034c043bb0d', false);
+let api = new guardian('test_api_key', false);
 
 
 describe('Connection', () => {
   it('should return OK', async () => {
-    const { response } = await api.content.search();
+    const response = await api.content.search();
 
-    expect(response.statusCode).toBe(200);
+    expect(response.status).toEqual('ok');
   })
 });
 
-describe('Content', async () => {
+describe('Content', () => {
   it('has a search function that returns OK', async () => {
-    const { response } = await api.content.search();
+    const response = await api.content.search();
     
-    expect(response.statusCode).toBe(200);
+    expect(response.status).toEqual('ok');
   });
 
-  it('properly parses filters', async () => {
-    const { response } = await api.content.search('football', {
+  it('properly parses filters', async () => {    
+    const spy = jest.spyOn(api.content, '_request');
+
+    await api.content.search('football', {
       starRating: 3
     });
-    
-    expect(response.req._header.includes('star-rating'));
+
+    expect(spy.mock.calls[0][0].includes('star-rating=3')).toEqual(true);
   });
 
   it('actually returns content', async () => {
     const response = await api.content.search('football');
     
-    expect(JSON.parse(response.body).response.results.length).toBeGreaterThan(0);
+    expect(response.results.length).toBeGreaterThan(0);
   });
 
 });
 
 describe('Tags', () => {
   it('has a search function that returns OK', async () => {
-   const { response } =  await api.tags.search();
+   const response =  await api.tags.search();
     
-   expect(response.statusCode).toBe(200);
+   expect(response.status).toEqual('ok');
   });
 
   it('properly parses filters', async () => {
-    const { response } = await api.tags.search('football', {
+    const spy = jest.spyOn(api.tags, '_request');
+
+    await api.tags.search('basketball', {
       pageSize: 3
     });
     
-    expect(response.req._header.includes('page-size'));
+    expect(spy.mock.calls[0][0].includes('page-size=3')).toEqual(true);
   });
 
   it('actually returns content', async () => {
     const response = await api.tags.search('sport');
     
-    expect(JSON.parse(response.body).response.results.length).toBeGreaterThan(0);
+    expect(response.results.length).toBeGreaterThan(0);
   });
 });
 
 describe('Sections', () => {
   it('has a search function that returns OK', async () => {
-    const { response } = await api.sections.search();
+    const response = await api.sections.search();
     
-    expect(response.statusCode).toBe(200);
+    expect(response.status).toEqual('ok');
   });
 
   it('actually returns content', async () => {
-    const { body } = await api.tags.search('world');
+    const response = await api.tags.search('world');
     
-    expect(JSON.parse(body).response.results.length).toBeGreaterThan(0);
+    expect(response.results.length).toBeGreaterThan(0);
   });
 });
 
 describe('Editions', () => {
   it('has a search function that returns OK', async () => {
-    const { response } = await api.editions.search();
+    const response = await api.editions.search();
     
-    expect(response.statusCode).toBe(200);
+    expect(response.status).toEqual('ok');
   });
 
   it('actually returns content', async () => {
-    const { body } = await api.editions.search('u');
+    const response = await api.editions.search('u');
     
-    expect(JSON.parse(body).response.results.length).toBeGreaterThan(0);
+    expect(response.results.length).toBeGreaterThan(0);
   });
 });
 
 describe('Item', () => {
   it('has a search function that returns OK', async () => {
-    const { response } = await api.item.getById('business/2014/feb/18/uk-inflation-falls-below-bank-england-target');
+    const response = await api.item.getById('business/2014/feb/18/uk-inflation-falls-below-bank-england-target');
     
-    expect(response.statusCode).toBe(200);
+    expect(response.status).toEqual('ok');
   });
 
   it('actually returns content', async () => {
-    const { body } = await api.item.getById('business/2014/feb/18/uk-inflation-falls-below-bank-england-target');
+    const response = await api.item.getById('business/2014/feb/18/uk-inflation-falls-below-bank-england-target');
 
-    expect(JSON.parse(body).response.total).toBeGreaterThan(0);
+    expect(response.total).toBeGreaterThan(0);
   });
 });

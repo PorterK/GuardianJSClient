@@ -3,14 +3,19 @@
       "outDir": "./dist/",
       "declaration": true,
       "module": "commonjs",
-      "target": "es2015",
-      "lib": ["es2020"]
+      "target": "es2020",
+      "lib": ["es2020", "DOM"],
+      "strict": false,
+      "skipLibCheck": true,
+      "types": []
   },
   "include": [
       "src/**/*"
   ],
   "exclude": [
-      "node_modules",
-      "**/*.spec.ts"
+    "node_modules",
+    "./node_modules",
+    "./node_modules/*",
+    "./node_modules/@types/node/index.d.ts"
   ]
 }
